@@ -29,11 +29,11 @@ export default function App() {
           </Section>
           <Section title={otherExperience.title}>
             <SectionEntries>
-              {otherExperience.entries.map(entry => {
+              {otherExperience.entries.map((entry, entryIndex) => {
                 const { title, description } = entry
 
                 return (
-                  <SectionEntry>
+                  <SectionEntry key={`other-experience-${title}-${entryIndex}`}>
                     <SectionEntryTitle>{title}</SectionEntryTitle>
                     <SectionEntryDescription>{description}</SectionEntryDescription>
                   </SectionEntry>
@@ -109,7 +109,7 @@ const SectionEntryTitle = styled.h3`
   margin-bottom: 1mm;
 `
 
-const SectionEntryDescription = styled.p`
+const SectionEntryDescription = styled.div`
   font-family: Work Sans;
   font-weight: 300;
   font-size: 15px;
